@@ -46,4 +46,45 @@ w2 = np.ones((4, 10)) #weights for layer 2
 z2 = np.dot(z1, w2) #pre-activation output of layer
 print("z2 shape:", z2.shape) #(70000, 10)
 
+#activation functions
+
+def sigmoid(z: np.ndarray) -> np.ndarray:
+    return 1 / (1 + np.exp(-z))
+
+def relu(z: np.ndarray) -> np.ndarray:
+    return np.maximum(0, z)
+
+def tanh(z: np.ndarray) -> np.ndarray:
+    return np.tanh(z)
+
+def leaky_relu(z: np.ndarray) -> np.ndarray:
+    return np.where(z > 0, z, z * 0.01)
+
+
+def softmax(z: np.ndarray) -> np.ndarray:
+    exp_z = np.exp(z - np.max(z)) #subtracting max for numerical stability
+    return exp_z / np.sum(exp_z, axis=0)
+
+
+def normalize(x: np.ndarray) -> np.ndarray:
+    return (x - np.min(x)) / (np.max(x) - np.min(x))
+
+
+#now need derivative of the activation function to perform the gradient descent
+def derivative(function_name:str, z:np.ndarray) -> np.ndarray:
+    if function_name == 'sigmoid':
+        sig = sigmoid(z)
+        return sig * (1 - sig)
+    elif function_name == 'relu':
+        y = (z > 0) * 1
+        return y
+    elif function_name == 'tanh':
+        return 1 - np.square(tanh(z))
+    elif function_name == 'leaky_relu':
+        return np.where(z > 0, 1, 0.01)
+    else:
+        return "No such activation function exists"
+    
+
+
 

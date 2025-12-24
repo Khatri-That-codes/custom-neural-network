@@ -36,5 +36,14 @@ plt.axis('off')
 plt.show()
 #the shape will be (28, 28) because sqrt(784) = 28, so the image is 28 pixels by 28 pixels/matrix
 
+#now NN with single deep layyer and 4 neurons
+
+w1 = np.ones((784, 4)) *0.01 #weights for layer 1
+z1 = np.dot(data,w1) #pre-activation output of layer 1
+print("z1 shape:", z1.shape) #(70000, 4)
+
+w2 = np.ones((4, 10)) #weights for layer 2
+z2 = np.dot(z1, w2) #pre-activation output of layer
+print("z2 shape:", z2.shape) #(70000, 10)
 
 

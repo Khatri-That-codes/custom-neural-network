@@ -1,0 +1,49 @@
+# Virtual environments
+.venv/
+venv/
+venv.bak/
+env/
+ENV/
+
+# Python cache and bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+
+# Installer logs
+pip-log.txt
+
+# Pytest
+.pytest_cache/
+
+# Environment variables
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# OneDrive lock and temp files
+~$*
+*.tmp
+
+# Logs
+*.log
+
+# IDEs/editors
+*.sublime-workspace
+*.sublime-project
+.idea/
+
